@@ -1,0 +1,306 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Archivo", sans-serif;
+    background-color: #f4f4f9;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+
+header h1 {
+    color: rgb(44, 158, 252);
+}
+
+h1 {
+    font-size: 3rem; 
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 2rem; 
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#select-stocks .stocks-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.available-stock {
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: slide-in 0.6s forwards;
+}
+
+.available-stock:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.available-stock:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.available-stock:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.available-stock:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.available-stock:nth-child(5) {
+    animation-delay: 0.5s;
+}
+.available-stock:nth-child(6) {
+    animation-delay: 0.6s;
+}
+.available-stock:nth-child(7) {
+    animation-delay: 0.7s;
+}
+.available-stock:nth-child(8) {
+    animation-delay: 0.8s;
+}
+.available-stock:nth-child(9) {
+    animation-delay: 0.9s;
+}
+.available-stock:nth-child(10) {
+    animation-delay: 1.0s;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.available-stock:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+    transform: scale(1.1);
+    transition: transform 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.available-stock.selected {
+    border-color: #13b016;
+    background-color: #e8f5e9;
+}
+
+.available-stock-logo-container img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+#portfolio-value h1 {
+    font-size: 3.5rem;
+    color: #007bff;
+}
+
+.portfolio-stocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.card-container {
+    perspective: 1000px;
+    width: 300px;
+    margin-bottom: 40px;
+}
+
+.card {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+.card .card-front,
+.card .card-back {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+.card .card-front {
+    z-index: 2;
+}
+
+.card .card-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.card h3,
+.card h4 {
+    margin: 0;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card h4 {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.card .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #777;
+}
+
+.card .close-btn:hover {
+    color: #8a8a8a;
+    transition: color 0.3s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90vw;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #777;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    color: #ff0000;  
+  }
+  
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .modal-container h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .modal-container input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 13px;
+  }
+  
+  .modal-container input[type="button"] {
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-container input[type="button"]:hover {
+    background-color: #0056b3;
+  }
+
+.modal-container input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; 
+    height: 80px;
+    border: 10px solid #007bff; 
+    border-top: 10px solid #f3f3f3; 
+    border-right: 10px solid #f3f3f3; 
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
